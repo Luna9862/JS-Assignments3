@@ -33,9 +33,7 @@ if (appdetail.emails[1].status === 'draft') {
             status: 'draft'
         });
     }
-    
- 
-    addDraftEmail('notifications@Discord.com', 'class-notifications', 'You have one new message');
-    console.log(appdetail.drafts);
 
+    addDraftEmail('notifications@Discord.com', 'class-notifications', 'You have one new message');
+    console.log(appdetail.drafts); 
 }
