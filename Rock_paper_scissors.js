@@ -13,7 +13,7 @@ function playRound(player1, player2) {
 
     if (hand1 === hand2) {
         console.log("It's a tie!");
-        return "tie";
+        return null;
     } else if ((hand1 === "rock" && hand2 === "scissors") ||
                (hand1 === "paper" && hand2 === "rock") ||
                (hand1 === "scissors" && hand2 === "paper")) {
@@ -25,7 +25,7 @@ function playRound(player1, player2) {
     }
 }
 
-
+// this fuctions takes in a two distic players and how many wins are needed to be consider the winner 
 function playGame(player1, player2, playUntil) {
     let player1Wins = 0;
     let player2Wins = 0;
@@ -61,9 +61,9 @@ function playTournament(player1, player2, player3, player4, playUntil) {
 }
 
 
-const player1 = { name: "Robert" };
-const player2 = { name: "Leo" };
-const player3 = { name: "Racheal" };
-const player4 = { name: "Ria" };
+const player1 = { name: "Robert",getHand };
+const player2 = { name: "Leo",getHand };
+const player3 = { name: "Racheal",getHand };
+const player4 = { name: "Ria", getHand};
 
 playTournament(player1, player2, player3, player4, 3);
