@@ -1,18 +1,16 @@
 const photoSlideShow = {
-    photoList: [],
+    photoList: ["Picture1", "Picture2", "Picture3"],
     currentPhotoIndex: 0,
 
-    addPhoto(photoName) {
-        this.photoList.push(photoName);
-    },
 
 nextPhoto() {
-    if (this.currentPhtotIndex < this.photoList.length - 1) {
+    if (this.currentPhotoIndex < this.photoList.length - 1) {
         this.currentPhotoIndex++;
         console.log(`Current photo: ${this.getCurrentPhoto()}`);
     } else {
         console.log("End of slideshow");
     }
+    
 },
 
 prevPhoto() {
@@ -28,5 +26,11 @@ getCurrentPhoto(){
     return this.photoList[this.currentPhotoIndex];
 }
 
-}
+};
 
+photoSlideShow.nextPhoto();
+photoSlideShow.nextPhoto();
+photoSlideShow.nextPhoto();
+photoSlideShow.prevPhoto();
+photoSlideShow.prevPhoto();
+photoSlideShow.prevPhoto();
