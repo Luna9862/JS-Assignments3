@@ -5,59 +5,149 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website using bootstrap</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <style>
         body {
-            background-color:#ffcccc
+            background-color: bisque;
         }
         .hero-section {
-            background-image: url('rose.jpg');
+            background-image: url('redorange.jpg');
             background-size: cover;
             background-position: center;
             color: #fff;
             text-align: center;
-            padding: 100px 0; /* Adjust padding as needed */
+            padding: 100px 0;
         }
-        .navbar {
-            background-color:palevioletred;
+    
+        .card-img-standard {
+            width: 60px; /* Adjust width as needed */
+            height: 100px; /* Adjust height as needed */
+            object-fit: contain;
+        }
+        .card-img-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
         }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg ">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Grow like a Rose</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-              <a class="nav-link" href="#">About</a>
-              <a class="nav-link" href="#">Features</a>
-              <a class="nav-link" href="#">Contact</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Grow like a Rose</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="#hero-section">Home</a>
+                    <a class="nav-link" href="#about">About</a>
+                    <a class="nav-link" href="#Features">Features</a>
+                    <a class="nav-link" href="#contact">Contact</a>
+                </div>
             </div>
-          </div>
         </div>
-      </nav>
-      <section class="hero-section">
+    </nav>
+
+    <section id="hero-section" class="hero-section">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 mx-auto">
                     <h1 class="display-5 fw-bold">Rose Gardening</h1>
                     <p class="lead">Want to have a beautiful garden this Summer? Here at Rose Gardens, we provide professional gardeners who can help you learn techniques to grow many plants and flowers.</p>
-                    <button class="btn btn-dark btn-lg">Grow your own Rose</button>
+                    <a href="#contact" class="btn btn-dark btn-lg">Grow your own Rose</a>
                 </div>
             </div>
         </div>
     </section>
-    <div>
-        <h1> </h1>
+
+    <div id="about" class="container py-5">
+        <div class="row">
+            <div class="col-md-8 mx-auto text-center">
+                <h1>About</h1>
+                <img src="roses-4359808_1280.jpg" class="img-fluid" alt="Image of a rose bush">
+                <p>Grow like a Rose was founded by an inspiration story. Many roses are cut and sold in stores. How many roses are thrown away if not bought. We believe that roses can bring happiness and appearance to one's homes. We also believe that due to inflation who would not want to save a couple of dollars by making your own rose garden. Grow like rose does not just grow Roses but all sorts of flowers.</p>
+            </div>
+        </div>
     </div>
-    
 
+    <div id="Features" class="container mt-5">
+        <div class="row justify-content-center">
+            <h1>Features</h1>
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-img-center">
+                        <img src="cloud-sun.svg" class="card-img-top card-img-standard" alt="icon of a cloud and sun">
+                        <div class="card-body">
+                            <h5 class="card-title">Seasons</h5>
+                            <p class="card-text">Grow like Rose is only offered during Spring and Summer Seasons. We have lessons for ages 15 and above.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-img-center">
+                        <img src="flower2.svg" class="card-img-top card-img-standard" alt="icon of a flower">
+                        <div class="card-body">
+                            <h5 class="card-title">Flowers</h5>
+                            <p class="card-text">We are located in Iowa, a fun fact about Iowa is that Iowa's state flower is the Prairie Rose.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-img-center">
+                        <img src="house-heart-fill.svg" class="card-img-top card-img-standard" alt="icon of a house-heart">
+                        <div class="card-body">
+                            <h5 class="card-title">Own little Garden</h5>
+                            <p class="card-text">In the beginning of the program each new gardener will plant any flower of their liking. By the end of the program each new gardener will have their own mini garden.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div id="contact" class="container py-5">
+        <div class="row justify-content-center">
+            <h1>Contacts</h1>
+            <div class="col-md-6">
+                <div class="custom-border">
+                    <form>
+                        <div class="mb-3">
+                            <label for="exampleInputname1" class="form-label">Full name</label>
+                            <input type="text" class="form-control" id="name" aria-describedby="fullname">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputflower1" class="form-label">Favorite flower</label>
+                            <input type="text" class="form-control" id="exampleInputflower1">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <footer class="text-center py-4">
+        <div class="container">
+            <p>&copy; 2024 Your Website. All Rights Reserved.</p>
+            <p>Designed by Grow like a Rose</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>
