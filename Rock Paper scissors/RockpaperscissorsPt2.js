@@ -1,24 +1,60 @@
-const hands = ['rock', 'paper', 'scissors'];
-
-// Function to get a random hand from the hands array
-function getHand() {
-    return hands[Math.floor(Math.random() * 3)];
-}
-
-// Define player objects with name and getHand method
+// Define player objects
 const player1 = {
-    name: 'Player 1',
-    getHand: getHand
+    name: "User",
+    score: 0,
+    hand: null,
+    // getHand() {
+    //     // Implement how user's choice will be determined
+    //     // For simplicity, return a random choice initially
+    //     const choices = ['rock', 'paper', 'scissors'];
+    //     return choices[Math.floor(Math.random() * choices.length)];
+    // }
 };
 
 const player2 = {
-    name: 'Player 2',
-    getHand: getHand
+    name: "Mickey",
+    score: 0,
+    getHand() {
+        // Implement how Mickey's choice will be determined
+        // For simplicity, return a random choice initially
+        const choices = ['rock', 'paper', 'scissors'];
+        return choices[Math.floor(Math.random() * choices.length)];
+    }
 };
 
-// Function to play a round between two players
+// Function to handle the click event of the play button
+// document.getElementById('play-button').addEventListener('click', function() {
+//     playRound(player1, player2);
+// });
+
+document.getElementById('scissorsButton').addEventListener('click', function() {
+    player1.hand = 'scissors';
+    playRound(player1, player2);
+})
+document.getElementById('paperButton').addEventListener('click', function() {
+    player1.hand = 'paper';
+    playRound(player1, player2);
+})
+document.getElementById('rockButton').addEventListener('click', function() {
+    player1.hand = 'rock';
+    playRound(player1, player2);
+})
+
+// Function to update scores on the HTML page
+function updateScores(player1, player2) {
+    document.getElementById('user-score').textContent = player1.score;
+    document.getElementById('Mickey-score').textContent = player2.score;
+}
+
+// Function to update the winner box
+function updateWinner(winner) {
+    const winnerElement = document.getElementById('winner-box');
+    winnerElement.textContent = `${winner} wins!`;
+}
+
+// Function to play a round of Rock Paper Scissors
 function playRound(player1, player2) {
-    const hand1 = player1.getHand();
+    const hand1 = player1.hand;
     const hand2 = player2.getHand();
 
     console.log(`player1 (${player1.name}) hand: ${hand1}`);
@@ -26,18 +62,20 @@ function playRound(player1, player2) {
 
     if (hand1 === hand2) {
         console.log("It's a tie!");
-        return null;
     } else if ((hand1 === "rock" && hand2 === "scissors") ||
                (hand1 === "paper" && hand2 === "rock") ||
                (hand1 === "scissors" && hand2 === "paper")) {
         console.log(`Winner: ${player1.name}`);
-        return player1;
+        player1.score++;
+        updateWinner(player1.name);
     } else {
         console.log(`Winner: ${player2.name}`);
-        return player2;
+        player2.score++;
+        updateWinner(player2.name);
     }
+
+    updateScores(player1, player2);
 }
 
-// Example usage:
-const winner = playRound(player1, player2);
-console.log("Winner:", winner && winner.name);
+// Initial update of scores when the page loads
+updateScores(player1, player2);
