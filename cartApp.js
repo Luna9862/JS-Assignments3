@@ -1,50 +1,58 @@
-
-const cartModule = {
-    initializeCart: function() {
-      if (!localStorage.getItem('cart')) {
-        localStorage.setItem('cart', JSON.stringify([]));
-      }
-    },
-  
-    addItem: function(item) {
-      let cart = JSON.parse(localStorage.getItem('cart'));
-      cart.push(item);
-      localStorage.setItem('cart', JSON.stringify(cart));
-    },
-  
-    removeItem: function(itemId) {
-      let cart = JSON.parse(localStorage.getItem('cart'));
-      const updatedCart = cart.filter(item => item.id !== itemId);
-      localStorage.setItem('cart', JSON.stringify(updatedCart));
-    },
-  
-    displayCart: function() {
-      let cart = JSON.parse(localStorage.getItem('cart'));
-      console.log(cart);
+// Function to initialize the cart in localStorage if it doesn't exist
+function initializeCart() {
+    let cart = localStorage.getItem('cart');
+    if (!cart) {
+      localStorage.setItem('cart', JSON.stringify([]));
     }
-  };
+  }
   
-  // Event listeners
-  document.addEventListener('DOMContentLoaded', function() {
-    cartModule.initializeCart();
+  // Function to add an item to the cart
+  function addItem(item) {
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    cart.push(item);
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
   
-    const addItemForm = document.getElementById('addItemForm');
-    addItemForm.addEventListener('submit', function(event) {
-      event.preventDefault();
-      const itemName = document.getElementById('itemName').value;
-      const itemPrice = parseFloat(document.getElementById('itemPrice').value);
-      const newItem = {
-        id: Date.now(),
-        name: itemName,
-        price: itemPrice
-      };
-      cartModule.addItem(newItem);
-      addItemForm.reset();
-    });
+  // Function to remove an item from the cart based on its id
+  function removeItem(itemId) {
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    let updatedCart = cart.filter(item => item.id !== itemId);
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+  }
   
-    const displayCartButton = document.getElementById('displayCartButton');
-    displayCartButton.addEventListener('click', function() {
-      cartModule.displayCart();
-    });
+  // Function to display the cart contents
+  function displayCart() {
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    console.log('Cart Contents:');
+    console.log(cart);
+  }
+  
+  // Event listener for the addItemForm submission
+  document.getElementById('addItemForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    let itemName = document.getElementById('itemName').value;
+    let itemPrice = parseFloat(document.getElementById('itemPrice').value);
+  
+    if (!itemName || isNaN(itemPrice)) {
+      alert('Please enter valid item details.');
+      return;
+    }
+  
+    let newItem = {
+      id: Date.now(), // Using timestamp as a unique id (for simplicity in this example)
+      name: itemName,
+      price: itemPrice
+    };
+  
+    addItem(newItem);
+    document.getElementById('addItemForm').reset();
   });
+  
+  // Event listener for the displayCartButton
+  document.getElementById('displayCartButton').addEventListener('click', function() {
+    displayCart();
+  });
+  
+  // Initialize cart on page load
+  initializeCart();
   
